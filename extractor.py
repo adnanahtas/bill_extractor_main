@@ -17,8 +17,8 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 # Set your API keys
-GEMINI_API_KEY = 'AIzaSyA4Ri3j0Ev0jmgiuT470pQoENxjusVBq6Q'
-CLAUDE_API_KEY = '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'
+GEMINI_API_KEY = 'your-key'
+CLAUDE_API_KEY = 'your-key'
 
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
