@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Text Extractor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div id="loginForm" class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 id="login" class="text-3xl font-bold mb-6 text-center text-gray-800">Login</h1>
+        <form id="login">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                <input type="text" id="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                <input type="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Sign In</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="extractorForm" class="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl hidden">
+        <h1 id="bill-text-extractor" class="text-3xl font-bold mb-6 text-center text-gray-800">Bill Text Extractor</h1>
+        
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Select Image(s)</label>
+            <div class="flex items-center justify-between">
+                <button id="selectFilesButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Select File</button>
+                <div class="flex items-center">
+                    <label class="mr-2 text-sm text-gray-700">Multiple Images</label>
+                    <input type="checkbox" id="multipleImagesToggle" class="form-checkbox h-5 w-5 text-blue-600">
+                </div>
+            </div>
+            <p id="selectedFiles" class="mt-2 text-sm text-gray-600"></p>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2">API Selection</label>
+            <div class="flex items-center">
+                <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                    <input type="checkbox" id="apiToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                    <label for="apiToggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                </div>
+                <span id="apiLabel" class="text-gray-700 font-medium">API G</span>
+            </div>
+        </div>
+
+        <button id="extractButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Extract Text</button>
+
+        <div id="progressBarContainer" class="mt-4 hidden">
+            <progress id="progressBar" class="w-full" value="0" max="100"></progress>
+            <p id="progressText" class="text-sm text-gray-600 mt-2"></p>
+        </div>
+
+        <div id="resultMessage" class="mt-4 text-center hidden"></div>
+
+        <div id="imageCountDisplay" class="mt-4 text-center text-sm text-gray-600">
+            Images processed today: <span id="imageCount">0</span> / 100
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
